@@ -1,16 +1,16 @@
-import Home from "../components/Home";
+import AppSidebar from "../components/AppSidebar";
 import Navbar from "../components/Navbar";
-import Sidebar from "../components/Sidebar";
 
-const Layout = () => {
+const Layout = ({ children }) => {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div className="w-screen h-auto flex ">
-        <Sidebar />
-        <Home />
+      <div className="flex flex-1">
+        <AppSidebar />
+        <main className="flex-1 p-6 bg-gray-50">{children}</main>
       </div>
-    </>
+    </div>
   );
 };
+
 export default Layout;
