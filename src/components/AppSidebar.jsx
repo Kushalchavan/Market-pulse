@@ -11,22 +11,22 @@ import {
   PieChart,
 } from "lucide-react";
 import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 
 const menuItems = [
-  { title: "Dashboard", icon: Home },
-  { title: "Stocks", icon: ChartNoAxesColumnIncreasing },
-  { title: "Markets", icon: ChartColumn },
-  { title: "Currencies", icon: DollarSign },
-  { title: "Global", icon: Globe },
-  { title: "Porfolio", icon: Wallet },
-  { title: "Performance", icon: LineChart },
-  { title: "Analysis", icon: PieChart },
-  { title: "Settings", icon: Settings },
+  { title: "Dashboard", icon: Home, link: "/" },
+  { title: "Stocks", icon: ChartNoAxesColumnIncreasing, link: "/stock" },
+  { title: "Markets", icon: ChartColumn, link: "/market" },
+  { title: "Currencies", icon: DollarSign, link: "/currencies" },
+  { title: "Global", icon: Globe, link: "/global" },
+  { title: "Porfolio", icon: Wallet, link: "/portfolio" },
+  { title: "Performance", icon: LineChart, link: "/performance" },
+  { title: "Analysis", icon: PieChart, link: "/analysis" },
+  { title: "Settings", icon: Settings, link: "/settings" },
 ];
 
 const Sidebar = () => {
-  const [active, setActive] = useState("Home");
   const [open, setOpen] = useState(true);
 
   return (
@@ -54,19 +54,21 @@ const Sidebar = () => {
 
       {/* menu */}
       <nav className="space-y-2">
-        {menuItems.map(({ title, icon: Icon }) => (
-          <button
+        {menuItems.map(({ title, icon: Icon, link }) => (
+          <NavLink
             key={title}
-            onClick={() => setActive(title)}
-            className={twMerge(
-              "w-full flex items-center gap-3 px-4 py-2 rounded-md text-left text-gray-700 hover:bg-gray-100 transition cursor-pointer",
-              active === title && "bg-gray-100 font-semibold",
-              open ? "justify-start gap-3" : "px-1 justify-center"
-            )}
+            to={link}
+            className={({ isActive }) =>
+              twMerge(
+                "w-full flex items-center gap-3 px-4 py-2 rounded-md text-left text-gray-700 hover:bg-gray-100 transition cursor-pointer",
+                open ? "justify-start gap-3" : "px-1 justify-center",
+                isActive && "bg-gray-100 font-semibold"
+              )
+            }
           >
             <Icon className="w-5 h-5" />
-            {open && <span>{title}</span>}
-          </button>
+            {open && <Link to={link}>{title}</Link>}
+          </NavLink>
         ))}
       </nav>
     </aside>
