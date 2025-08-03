@@ -26,7 +26,7 @@ const SettingsPage = () => {
             {settingsItem.map(({ icon: Icon, title }) => (
               <li
                 key={title}
-                className="hover:bg-neutral-100 transition p-2 flex gap-3 justify-start items-center mt-3"
+                className="hover:bg-neutral-100 transition p-2 flex gap-3 justify-start items-center mt-3 cursor-pointer"
               >
                 <Icon className="w-4 h-4" />
                 <span className="text-neutral-700 text-sm ">{title}</span>
