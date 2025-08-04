@@ -11,7 +11,7 @@ import {
   PieChart,
 } from "lucide-react";
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 
 const menuItems = [
@@ -67,7 +67,7 @@ const Sidebar = () => {
             }
           >
             <Icon className="w-5 h-5" />
-            {open && <Link to={link}>{title}</Link>}
+            {open && <span>{title}</span>}
           </NavLink>
         ))}
       </nav>
