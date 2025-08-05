@@ -37,8 +37,8 @@ const GlobalPage = () => {
       </h2>
 
       <div className="w-full border rounded-sm shadow-sm mt-6 bg-white py-2">
-        <h2 className="text-xl font-semibold p-6">🌐 Markets Overview</h2>
-        <div className="w-full grid grid-cols-3 gap-4  rounded-sm p-4 h-60">
+        <h2 className="text-xl font-semibold p-3 mt-2">🌐 Markets Overview</h2>
+        <div className="w-full grid grid-cols-3 gap-4 rounded-sm p-4 h-60">
           <GlobalMarketCard title="North America" data={dataofNorthAmerica} />
           <GlobalMarketCard title="Europe" data={dataOfEurope} />
           <GlobalMarketCard title="Asia-Pacific" data={dataOfAsia} />
