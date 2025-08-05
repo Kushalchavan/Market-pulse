@@ -34,7 +34,7 @@ const StockChart = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-xl font-semibolc">AAPL Inc.</CardTitle>
+        <CardTitle className="text-xl font-semibold">AAPL Inc.</CardTitle>
         <CardDescription>January - June 2025</CardDescription>
       </CardHeader>
       <CardContent>
