@@ -17,7 +17,6 @@ import {
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 import {
   ChartContainer,
-  ChartLegend,
   ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
@@ -182,7 +181,7 @@ const DashboardPage = () => {
           title="Top Loser"
           value="GOOGL"
           trend={-2.33}
-          trendLabel="NVDIA Corp."
+          trendLabel="Alphabet Corp."
           Icon={TrendingDown}
           className="bg-red-100/40"
         />

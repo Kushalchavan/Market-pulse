@@ -11,6 +11,10 @@ const settingsItem = [
   { icon: Settings, title: "Preferences" },
 ];
 
+const handleSubmit = (e) => {
+  e.preventDefault();
+};
+
 const SettingsPage = () => {
   return (
     <div className="max-w-screen h-full">
@@ -39,7 +43,7 @@ const SettingsPage = () => {
         <div className="w-full bg-white h-auto p-6 border rounded-sm shadow-sm">
           <h2 className="font-semibold text-xl">Account Settings</h2>
           <h3 className="mt-2 tracking-tight">Personal Information</h3>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="flex items-center gap-3 mt-4">
               <div className="w-1/2 flex flex-col gap-2">
                 <label className="text-sm">First Name</label>
