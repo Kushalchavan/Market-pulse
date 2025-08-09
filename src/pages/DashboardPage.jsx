@@ -22,6 +22,7 @@ import {
   ChartTooltipContent,
 } from "../components/ui/chart";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const chartData = [
   { date: "2024-04-01", desktop: 222, mobile: 150 },
@@ -147,14 +148,19 @@ const DashboardPage = () => {
     startDate.setDate(startDate.getDate() - daysToSubtract);
     return date >= startDate;
   });
-  
+
   return (
     <div>
       <h2 className="font-semibold tracking-tight text-2xl text-neutral-600">
         Dashboard
       </h2>
 
-      <div className="mt-7 w-full grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        className="mt-7 w-full grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+      >
         <DashboardCard
           title="Market Cap"
           value="$13.42T"
@@ -185,9 +191,14 @@ const DashboardPage = () => {
           Icon={TrendingDown}
           className="bg-red-100/40"
         />
-      </div>
+      </motion.div>
 
-      <div className="w-full mt-10">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="w-full mt-10"
+      >
         <Card className="pt-0">
           <CardHeader className="flex items-center gap-2 space-y-0 border-b py-5 sm:flex-row">
             <div className="grid flex-1 gap-1">
@@ -296,7 +307,7 @@ const DashboardPage = () => {
             </ChartContainer>
           </CardContent>
         </Card>
-      </div>
+      </motion.div>
     </div>
   );
 };

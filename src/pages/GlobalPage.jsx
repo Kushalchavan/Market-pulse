@@ -9,6 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "../components/ui/table";
+import { motion } from "framer-motion";
 
 const dataofNorthAmerica = [
   { id: 1, city: "United States", rate: "+0.09%" },
@@ -38,14 +39,24 @@ const GlobalPage = () => {
 
       <div className="w-full border rounded-sm shadow-sm mt-6 bg-white py-2">
         <h2 className="text-xl font-semibold p-3 mt-2">🌐 Markets Overview</h2>
-        <div className="w-full grid grid-cols-3 gap-4 rounded-sm p-4 h-60">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="w-full grid grid-cols-3 gap-4 rounded-sm p-4 h-60"
+        >
           <GlobalMarketCard title="North America" data={dataofNorthAmerica} />
           <GlobalMarketCard title="Europe" data={dataOfEurope} />
           <GlobalMarketCard title="Asia-Pacific" data={dataOfAsia} />
-        </div>
+        </motion.div>
       </div>
 
-      <div className="mt-8 w-full h-auto p-4 rounded-sm shadow-sm bg-white border">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="mt-8 w-full h-auto p-4 rounded-sm shadow-sm bg-white border"
+      >
         <h2 className="text-xl font-semibold">Economic Calender</h2>
         <div className="w-full h-auto mt-5">
           <Table>
@@ -110,7 +121,7 @@ const GlobalPage = () => {
             </TableBody>
           </Table>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

@@ -12,6 +12,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "../../components/ui/chart";
+import { motion } from "framer-motion";
 
 const chartData = [
   { month: "January", stock: 186, sp: 80 },
@@ -35,62 +36,69 @@ const chartConfig = {
 
 const PerformanceChart = () => {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-xl">Porfolio Performance</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <ChartContainer
-          className="h-96 w-full bg-neutral-100/50"
-          config={chartConfig}
-        >
-          <LineChart
-            accessibilityLayer
-            data={chartData}
-            margin={{
-              left: 12,
-              right: 12,
-            }}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-xl">Porfolio Performance</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <ChartContainer
+            className="h-96 w-full bg-neutral-100/50"
+            config={chartConfig}
           >
-            <CartesianGrid vertical={false} />
-            <XAxis
-              dataKey="month"
-              tickLine={false}
-              axisLine={false}
-              tickMargin={8}
-              tickFormatter={(value) => value.slice(0, 3)}
-            />
-            <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
-            <Line
-              dataKey="stock"
-              type="monotone"
-              stroke="#2FA9D6"
-              strokeWidth={2}
-              dot={false}
-            />
-            <Line
-              dataKey="sp"
-              type="monotone"
-              stroke="#9E2FD6"
-              strokeWidth={2}
-              dot={false}
-            />
-          </LineChart>
-        </ChartContainer>
-      </CardContent>
-      <CardFooter>
-        <div className="flex w-full items-start gap-2 text-sm mt-3">
-          <div className="grid gap-2">
-            <div className="flex items-center gap-2 leading-none font-medium">
-              Portfolio up by 5.2% this month <TrendingUp className="h-4 w-4" />
-            </div>
-            <div className="text-muted-foreground flex items-center gap-2 leading-none">
-              Porfolio total for the last 6 months
+            <LineChart
+              accessibilityLayer
+              data={chartData}
+              margin={{
+                left: 12,
+                right: 12,
+              }}
+            >
+              <CartesianGrid vertical={false} />
+              <XAxis
+                dataKey="month"
+                tickLine={false}
+                axisLine={false}
+                tickMargin={8}
+                tickFormatter={(value) => value.slice(0, 3)}
+              />
+              <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+              <Line
+                dataKey="stock"
+                type="monotone"
+                stroke="#2FA9D6"
+                strokeWidth={2}
+                dot={false}
+              />
+              <Line
+                dataKey="sp"
+                type="monotone"
+                stroke="#9E2FD6"
+                strokeWidth={2}
+                dot={false}
+              />
+            </LineChart>
+          </ChartContainer>
+        </CardContent>
+        <CardFooter>
+          <div className="flex w-full items-start gap-2 text-sm mt-3">
+            <div className="grid gap-2">
+              <div className="flex items-center gap-2 leading-none font-medium">
+                Portfolio up by 5.2% this month{" "}
+                <TrendingUp className="h-4 w-4" />
+              </div>
+              <div className="text-muted-foreground flex items-center gap-2 leading-none">
+                Porfolio total for the last 6 months
+              </div>
             </div>
           </div>
-        </div>
-      </CardFooter>
-    </Card>
+        </CardFooter>
+      </Card>
+    </motion.div>
   );
 };
 export default PerformanceChart;

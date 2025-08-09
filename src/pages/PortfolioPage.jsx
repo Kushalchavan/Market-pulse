@@ -10,6 +10,7 @@ import {
   TableRow,
 } from "../components/ui/table";
 import { mockPortfolio } from "../data/mockPortfolio";
+import { motion } from "framer-motion";
 
 const PortfolioPage = () => {
   return (
@@ -19,11 +20,21 @@ const PortfolioPage = () => {
       </h2>
 
       <div className="w-full flex gap-4 mt-6">
-        <div className="w-[40%]">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="w-[40%]"
+        >
           <PortfolioChart />
-        </div>
+        </motion.div>
 
-        <div className="w-full bg-white p-4 rounded-sm shadow-sm border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="w-full bg-white p-4 rounded-sm shadow-sm border"
+        >
           <h2 className="text-xl font-semibold mt-2 mb-3">Holdings</h2>
           <Table>
             <TableCaption>A list of your recent Holdings </TableCaption>
@@ -64,7 +75,7 @@ const PortfolioPage = () => {
               })}
             </TableBody>
           </Table>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
