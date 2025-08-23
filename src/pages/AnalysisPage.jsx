@@ -2,6 +2,7 @@ import { Bitcoin } from "lucide-react";
 import AnalysisCard from "../components/cards/AnalysisCard";
 import AnalysisChart from "../components/charts/AnalysisChart";
 import { mockCryptos } from "../data/mockCryptos";
+import { motion } from "framer-motion";
 
 const AnalysisPage = () => {
   return (
@@ -10,9 +11,14 @@ const AnalysisPage = () => {
         Market Analysis
       </h2>
 
-      <div className="w-full mt-6">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="w-full mt-6"
+      >
         <AnalysisChart />
-      </div>
+      </motion.div>
 
       <div className="w-full mt-5 bg-white p-4">
         <h2 className="text-2xl flex gap-2 items-center justify-start mt-3 mb-5 font-semibold">

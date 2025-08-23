@@ -1,12 +1,39 @@
-# React + Vite
+# 📊 MarketPulse
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MarketPulse is a modern **React.js Dashboard** built with **ShadCN UI**, **Framer Motion**, and **Tailwind CSS**.  
+It provides a clean, responsive, and animated interface for tracking market data, analytics, and insights.  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
+- ⚛️ **React.js** – Frontend framework
+- 🎨 **ShadCN UI** – Modern UI components
+- 🌀 **Framer Motion** – Smooth animations and transitions
+- 💨 **Tailwind CSS** – Utility-first CSS for styling
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+- 📈 Interactive and responsive dashboard layout  
+- 🎨 Beautiful UI with **ShadCN UI components**  
+- 🌀 Smooth animations powered by **Framer Motion**  
+- 📱 Fully responsive for desktop and mobile  
+- 🔧 Easy to customize and extend  
+
+---
+
+## 🛠️ Installation & Setup
+
+Clone the repository:
+```bash
+git clone https://github.com/your-username/marketpulse.git
+cd marketpulse
+```
+
+```bash
+npm install
+```
+
+```bash
+npm run dev
+```
