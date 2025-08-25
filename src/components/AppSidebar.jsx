@@ -13,6 +13,7 @@ import {
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
+import { motion } from "framer-motion";
 
 const menuItems = [
   { title: "Dashboard", icon: Home, link: "/" },
@@ -26,11 +27,34 @@ const menuItems = [
   { title: "Settings", icon: Settings, link: "/settings" },
 ];
 
+const MotionNavlink = motion(NavLink);
+
 const Sidebar = () => {
   const [open, setOpen] = useState(true);
 
+  const sidebarVariants = {
+    open: { width: "16rem", transition: { type: "spring", stiffness: 80 } }, // 64 = w-64
+    closed: { width: "4.5rem", transition: { type: "spring", stiffness: 80 } }, // 18 = w-18
+  };
+
+  const container = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { x: -15, opacity: 0 },
+    visible: { x: 0, opacity: 1 },
+  };
+
   return (
-    <aside
+    <motion.aside
+      variants={sidebarVariants}
       className={twMerge(
         "w-72 bg-white border-r h-full p-4 transition-all duration-300 ease-in-out",
         open ? "w-64" : "w-18"
@@ -53,9 +77,15 @@ const Sidebar = () => {
       </div>
 
       {/* menu */}
-      <nav className="space-y-2">
+      <motion.nav
+        variants={container}
+        initial="hidden"
+        animate="visible"
+        className="space-y-2"
+      >
         {menuItems.map(({ title, icon: Icon, link }) => (
-          <NavLink
+          <MotionNavlink
+            variants={item}
             key={title}
             to={link}
             className={({ isActive }) =>
@@ -68,10 +98,10 @@ const Sidebar = () => {
           >
             <Icon className="w-5 h-5" />
             {open && <span>{title}</span>}
-          </NavLink>
+          </MotionNavlink>
         ))}
-      </nav>
-    </aside>
+      </motion.nav>
+    </motion.aside>
   );
 };
 
