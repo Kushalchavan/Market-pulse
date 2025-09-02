@@ -62,7 +62,7 @@ const Sidebar = () => {
     >
       <div className="h-14 border-b mb-4 flex justify-between items-center">
         {open && (
-          <h2 className="font-semibold text- tracking-tight text-neutral-700">
+          <h2 className="font-semibold tracking-tight text-neutral-700">
             MarketPulse
           </h2>
         )}
